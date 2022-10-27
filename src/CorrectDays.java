@@ -1,17 +1,14 @@
 public class CorrectDays {
     public static void main(String[] args) {
         //int day, month, year;
-        System.out.println(isCorrectDays(23, 1, 2012));
+        System.out.println(isCorrectDays(30, 2, 2004));
     }
 
-    public static boolean isLeapYears(int nYear) {
-        return nYear % 4 == 0 && nYear % 100 != 0 || nYear % 400 == 0;
-    }
-
-    public static int countDaysAMonth(int nMonth, int nYear) {
+    public static boolean isCorrectDays (int a, int b, int c) {
+        if (c < 0) return false;
         int NumOfDays;
 
-        switch (nMonth) {
+        switch (b) {
             case 1, 3, 5, 7, 8, 10, 12:
                 NumOfDays = 31;
                 break;
@@ -21,21 +18,14 @@ public class CorrectDays {
                 break;
 
             case 2:
-                if (isLeapYears(nYear)) {
+                if (c % 4 == 0 && c % 100 != 0 || c % 400 == 0) {
                     NumOfDays = 29;
                 }
                 else NumOfDays = 28;
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + nMonth);
+                return false;
         }
-
-        return NumOfDays;
-    }
-
-    public static boolean isCorrectDays (int a, int b, int c) {
-        if (c < 0) return false;
-        if (b < 1 || b > 12) return false;
-        return a >= 1 && a <= countDaysAMonth(b, c);
+        return a >= 1 && a <= NumOfDays;
     }
 }
