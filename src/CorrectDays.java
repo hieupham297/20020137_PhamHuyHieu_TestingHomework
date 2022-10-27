@@ -7,7 +7,6 @@ public class CorrectDays {
     public static boolean isCorrectDays (int a, int b, int c) {
         if (c < 0) return false;
         int NumOfDays;
-
         switch (b) {
             case 1, 3, 5, 7, 8, 10, 12:
                 NumOfDays = 31;
